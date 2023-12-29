@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "agaric",
+	"version": "${version}",
+	"name": "Agaric",
+	"description": "You were expectin something else? WELL FUCK YOU!",
+	"authors": [
+		"Dead Comedian"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/agaric/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.deadcomedian.agaric.Agaric"
+		],
+		"client": [
+			"net.deadcomedian.agaric.AgaricClient"
+		],
+		"fabric-datagen": [
+			"net.deadcomedian.agaric.AgaricDataGenerator"
+		]
+	},
+	"mixins": [
+		"agaric.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.3",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
