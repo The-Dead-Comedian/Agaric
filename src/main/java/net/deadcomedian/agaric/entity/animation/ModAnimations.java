@@ -5,6 +5,8 @@ import net.minecraft.client.render.entity.animation.AnimationHelper;
 import net.minecraft.client.render.entity.animation.Keyframe;
 import net.minecraft.client.render.entity.animation.Transformation;
 public class ModAnimations {
+
+
     public static final Animation WALK = Animation.Builder.create(1f).looping()
             .addBoneAnimation("body",
                     new Transformation(Transformation.Targets.TRANSLATE,
@@ -137,11 +139,11 @@ public class ModAnimations {
     public static final Animation IDLE = Animation.Builder.create(1f).looping()
             .addBoneAnimation("body",
                     new Transformation(Transformation.Targets.TRANSLATE,
-                            new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
+                            new Keyframe(0f, AnimationHelper.createTranslationalVector(-1f, 0f, 0f),
                                     Transformation.Interpolations.CUBIC),
-                            new Keyframe(0.5f, AnimationHelper.createTranslationalVector(2f, 0f, 0f),
+                            new Keyframe(0.5f, AnimationHelper.createTranslationalVector(1f, 0f, 0f),
                                     Transformation.Interpolations.CUBIC),
-                            new Keyframe(1f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
+                            new Keyframe(1f, AnimationHelper.createTranslationalVector(-1f, 0f, 0f),
                                     Transformation.Interpolations.CUBIC)))
             .addBoneAnimation("body",
                     new Transformation(Transformation.Targets.ROTATE,
@@ -306,4 +308,37 @@ public class ModAnimations {
                                     Transformation.Interpolations.CUBIC),
                             new Keyframe(1.25f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.CUBIC))).build();
+    public static final Animation SIT = Animation.Builder.create(0f)
+            .addBoneAnimation("body",
+                    new Transformation(Transformation.Targets.TRANSLATE,
+                            new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, -6f, 0f),
+                                    Transformation.Interpolations.LINEAR)))
+            .addBoneAnimation("fang",
+                    new Transformation(Transformation.Targets.ROTATE,
+                            new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, 72.5f),
+                                    Transformation.Interpolations.LINEAR)))
+            .addBoneAnimation("fang2",
+                    new Transformation(Transformation.Targets.ROTATE,
+                            new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, -72.5f),
+                                    Transformation.Interpolations.LINEAR)))
+            .addBoneAnimation("bone",
+                    new Transformation(Transformation.Targets.ROTATE,
+                            new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, 80f),
+                                    Transformation.Interpolations.LINEAR)))
+            .addBoneAnimation("left_front_leg",
+                    new Transformation(Transformation.Targets.ROTATE,
+                            new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, -7.5f),
+                                    Transformation.Interpolations.LINEAR)))
+            .addBoneAnimation("bone2",
+                    new Transformation(Transformation.Targets.ROTATE,
+                            new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, -67.5f),
+                                    Transformation.Interpolations.LINEAR)))
+            .addBoneAnimation("bone3",
+                    new Transformation(Transformation.Targets.ROTATE,
+                            new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, -80f),
+                                    Transformation.Interpolations.LINEAR)))
+            .addBoneAnimation("bone4",
+                    new Transformation(Transformation.Targets.ROTATE,
+                            new Keyframe(0f, AnimationHelper.createRotationalVector(0f, 0f, 77.5f),
+                                    Transformation.Interpolations.LINEAR))).build();
 }

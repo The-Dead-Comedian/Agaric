@@ -21,7 +21,7 @@ public class ModEntities {
     public static final EntityType<SporderEntity> SPORDER = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(Agaric.MOD_ID, "sporder"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SporderEntity::new)
-                    .dimensions(EntityDimensions.fixed(1f, 1f)).build());
+                    .dimensions(EntityDimensions.changing(1.25f, 1.3f)).build());
 
 
 
