@@ -12,6 +12,6 @@ public class AgaricClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         EntityRendererRegistry.register(ModEntities.SPORDER, SporderRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.SPORDER, SporderModel::getTexturedModelData);
+
     }
 }

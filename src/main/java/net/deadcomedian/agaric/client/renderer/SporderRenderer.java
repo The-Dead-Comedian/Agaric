@@ -10,28 +10,25 @@ import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
+import software.bernie.geckolib.model.GeoModel;
+import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
-public class SporderRenderer extends MobEntityRenderer<SporderEntity, SporderModel<SporderEntity>> {
-    private static final Identifier TEXTURE = new Identifier(Agaric.MOD_ID, "textures/entity/sporder.png");
+public class SporderRenderer extends GeoEntityRenderer<SporderEntity> {
+    public SporderRenderer(EntityRendererFactory.Context renderManager ) {
 
-    public SporderRenderer(EntityRendererFactory.Context context) {
-        super(context, new SporderModel<>(context.getPart(ModModelLayers.SPORDER)), 0.6f);
+        super(renderManager, new SporderModel());
     }
-
     @Override
-    public Identifier getTexture(SporderEntity entity) {
-        return TEXTURE;
+    public Identifier getTextureLocation(SporderEntity animatable) {
+        return new Identifier(Agaric.MOD_ID, "textures/entity/sporder.png");
     }
-
     @Override
-    public void render(SporderEntity mobEntity, float f, float g, MatrixStack matrixStack,
-                       VertexConsumerProvider vertexConsumerProvider, int i) {
-        if(mobEntity.isBaby()) {
-            matrixStack.scale(0.5f, 0.5f, 0.5f);
-        } else {
-            matrixStack.scale(1f, 1f, 1f);
+    public void render(SporderEntity entity, float entityYaw, float partialTick, MatrixStack poseStack,
+                       VertexConsumerProvider bufferSource, int packedLight) {
+        if(entity.isBaby()) {
+            poseStack.scale(0.4f, 0.4f, 0.4f);
         }
 
-        super.render(mobEntity, f, g, matrixStack, vertexConsumerProvider, i);
+        super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
 }
